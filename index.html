@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101a19">
+  <meta name="description" content="Нападение медведя — мрачная лесная погоня. Доберитесь до укрытия. YaCo 2026.">
+  <title>Нападение медведя · YaCo 2026</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101a19'/%3E%3Cpath d='M17 48 25 12 31 48M32 48 39 9 43 48M47 48 53 15 55 48' fill='%23eab875'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="engine.js"></script>
+  <script defer src="audio.js"></script>
+  <script defer src="renderer.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<main class="game" aria-label="Нападение медведя" id="game">
+  <canvas id="scene" aria-label="Лесная тропа: три дорожки, герой и преследующий медведь"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand"><span class="claws" aria-hidden="true">╱╱╱</span><span data-i18n="shortTitle">НАПАДЕНИЕ МЕДВЕДЯ</span></div>
+    <nav class="toolbar" aria-label="Настройки игры" id="toolbar">
+      <button id="language" class="tool" aria-label="Switch to English">EN</button>
+      <button id="sound" class="tool" aria-label="Настройки звука"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8c3 2 3 6 0 8M20 5c5 4 5 10 0 14"/></svg></button>
+      <button id="pause" class="tool" aria-label="Пауза" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg></button>
+    </nav>
+  </header>
+  <section class="hud" id="hud" hidden aria-label="Ход забега">
+    <div class="metric"><div class="metric-label"><span data-i18n="shelter">ДО УКРЫТИЯ</span><strong id="remaining">75 с</strong></div><div class="track"><div id="progress"></div></div></div>
+    <div class="metric danger"><div class="metric-label"><span data-i18n="distance">ДО МЕДВЕДЯ</span><strong id="gap">100</strong></div><div class="track"><div id="distance"></div></div></div>
+  </section>
+  <div id="warning" class="warning" aria-hidden="true"></div>
+  <section class="controls" id="controls" hidden aria-label="Управление">
+    <button id="left" class="steer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg><span data-i18n="left">Влево</span></button>
+    <span class="control-hint" data-i18n="swipe">Свайп для манёвра</span>
+    <button id="right" class="steer"><span data-i18n="right">Вправо</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button>
+  </section>
+  <footer><span>YaCo 2026</span><span data-i18n="edition">ЛЕС НЕ ПРОЩАЕТ ОШИБОК</span></footer>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <div id="panel-content"></div>
+  </dialog>
+  <noscript>Для игры включите JavaScript. Enable JavaScript to play. YaCo 2026.</noscript>
+</main>
+</body>
+</html>
